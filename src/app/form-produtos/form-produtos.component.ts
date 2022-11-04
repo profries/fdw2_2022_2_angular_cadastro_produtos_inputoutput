@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'form-produtos',
@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class FormProdutosComponent implements OnInit {
 
   produto: any = {id:0, nome:'', preco: 0.0};
+  @Output() onSalvar = new EventEmitter<any>()
 
   constructor() { }
 
@@ -15,7 +16,8 @@ export class FormProdutosComponent implements OnInit {
   }
 
   cadastrar() {
-    alert(this.produto.nome)
+    //alert(this.produto.nome)
+    this.onSalvar.emit(this.produto);
     this.produto = {id:0, nome:'', preco: 0.0};
 
   }

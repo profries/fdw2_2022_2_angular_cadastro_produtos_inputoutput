@@ -1,3 +1,5 @@
 <h1>{{titulo}}</h1>
-<tabela-produtos></tabela-produtos>
-<form-produtos></form-produtos>
+<tabela-produtos titulo="Tabela de Produtos"
+    [lista]="listaProdutos">
+</tabela-produtos>
+<form-produtos (onSalvar)="addProduto($event)" ></form-produtos>
